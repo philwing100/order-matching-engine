@@ -9,7 +9,7 @@ SRC_DIR := src
 BIN_DIR := bin
 
 # Filesgc
-SRC := $(SRC_DIR)/main.cpp
+SRC	:=	$(shell find . -name "*.cpp")
 TARGET := $(BIN_DIR)/app
 
 # Default target
@@ -18,7 +18,7 @@ all: $(TARGET)
 # Build rule
 $(TARGET): $(SRC)
 	mkdir -p $(BIN_DIR)
-	$(CXX) $(CXXFLAGS) $< -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 # Clean
 clean:
