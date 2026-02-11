@@ -7,8 +7,9 @@ using namespace std;
 class order{
     public:
     int order_id;
+    bool side;
     double price;
     double quantity;
     double timestamp;
     string type;
-}
+};
