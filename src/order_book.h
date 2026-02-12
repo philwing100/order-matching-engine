@@ -1,3 +1,4 @@
+//order_book.h
 #pragma once
 
 #include <string>
@@ -7,7 +8,7 @@
 #include <unordered_map>
 using namespace std;
 
-struct order_book{
+struct OrderBook{
     string symbol;
 
     unordered_map<int, order*> order_map; //order id to order object pointer

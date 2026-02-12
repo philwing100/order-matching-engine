@@ -1,15 +1,25 @@
+//matching_engine.h
+// matching_engine.h
 #pragma once
-#include "order_book.h"
-#include <unordered_map>
-#include <string>
+#include "order_stream.h"
+#include "order.h"
+#include <thread>
+#include <atomic>
 
-using namespace std;
+class MatchingEngine {
+public:
+    MatchingEngine(OrderStream<Order>& stream);
 
-//Just exists to match the symbol to the order book as fast as possible
-struct engine{
-    unordered_map<string, order_book*> books; //symbol to order book
+    void start();
+    void stop();
 
-    
-    bool add_order();
+private:
+    void run();
+    void process(Order& o);
+
+    OrderStream<Order>& stream_;
+    std::atomic<bool> running_;
+    std::thread thread_;
 };
+
 
