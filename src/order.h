@@ -6,18 +6,10 @@
 #include <iostream>
 using namespace std;
 
-
-struct PriceLevel {
-    int total_quantity;
-    Order* head;
-    Order* tail;
-};
-
 class Order{
     public:
 
-
-    Order(int id, string symbol, bool side, PriceLevel price, double quantity, string type);
+    Order(int id, string symbol, bool side, double price, double quantity);
 
     void print_order();
 
@@ -25,9 +17,7 @@ class Order{
         int id_;
         string symbol_;
         bool side_;
-        PriceLevel price_;
+        double price_;
         double quantity_;
-        double timestamp_;
-        string type_;
 };
 

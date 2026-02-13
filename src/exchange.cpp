@@ -4,6 +4,7 @@
 #include <chrono>
 #include <random>
 
+using namespace std;
 Exchange::Exchange(OrderStream<Order>& stream,
                    int orders_per_sec,
                    int num_symbols,
@@ -14,9 +15,9 @@ Exchange::Exchange(OrderStream<Order>& stream,
       duration_(duration_sec),
       running_(false) {}
 
-void Exchange::start() {
+void Exchange::start(int opt) {
     running_ = true;
-    thread_ = std::thread(&Exchange::run, this);
+    thread_ = std::thread(&Exchange::run, this, opt);
 }
 
 void Exchange::stop() {
@@ -25,29 +26,26 @@ void Exchange::stop() {
         thread_.join();
 }
 
-void Exchange::run() {
-    std::mt19937 rng(std::random_device{}());
-    std::uniform_int_distribution<uint32_t> symbol_dist(0, symbols_ - 1);
-    std::uniform_real_distribution<double> price_dist(10.0, 200.0);
+string symbols[3] = {"NVDA", "AMD", "INTL"};
 
-    uint64_t order_id = 0;
-    auto interval = std::chrono::nanoseconds(1'000'000'000 / rate_);
-    auto next_time = std::chrono::steady_clock::now();
+string generateSymbol(){
 
-    auto end_time = next_time + std::chrono::seconds(duration_);
+}
 
-    while (running_ && next_time < end_time) {
-        next_time += interval;
+void addOrderToExchange(){
+    
+}
 
-        Order o{
-            order_id++,
-            symbol_dist(rng),
-            price_dist(rng),
-            100
-        };
+void Exchange::run(int opt) {
+    int order_id = 0;
+    if (opt > symbols->length()){
 
-        stream_.push(o);
-        std::this_thread::sleep_until(next_time);
+    }
+
+    for(order_id; order_id<5; order_id++){
+        Order order(order_id,"NVDA", 1, 10.0, 10.0);
+        order.print_order();
+        stream_.push(order);
     }
 
     running_ = false;

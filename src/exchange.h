@@ -5,6 +5,7 @@
 #include <condition_variable>
 #include <thread>
 #include <atomic>
+#include "order_stream.h"
 
 class Exchange
 {
@@ -14,11 +15,11 @@ class Exchange
              int num_symbols,
              int duration_sec);
 
-    void start();
+    void start(int opt);
     void stop();
     
     private:
-        void run();
+        void run(int opt);
 
     OrderStream<Order>& stream_;
     int rate_;

@@ -5,6 +5,9 @@
 #include "order.h"
 #include <thread>
 #include <atomic>
+#include <unordered_map>
+#include <string>
+#include "order_book.h"
 
 class MatchingEngine {
 public:
@@ -17,9 +20,12 @@ private:
     void run();
     void process(Order& o);
 
+    unordered_map<string, OrderBook*> book_map;
     OrderStream<Order>& stream_;
     std::atomic<bool> running_;
     std::thread thread_;
+
+    
 };
 
 

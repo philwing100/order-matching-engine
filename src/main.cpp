@@ -17,31 +17,14 @@ int main(int argc, char **argv) {
 
     OrderStream<Order> stream;
 
-    Exchange exchange(stream, 100000, 100, 10);
-    MatchingEngine engine(stream);
+    Exchange exchange(stream, opts.num_orders, opts.symbols, opts.duration);
+    //MatchingEngine engine(stream);
 
-    engine.start();
-    exchange.start();
+   // engine.start();
+    exchange.start(2);
 
     exchange.stop();
-    engine.stop();
-
-    return 0;
-
-    cout<<opts.num_orders;
-    cout<<"\n after\n";
-
-    Order order(1,true,23.0,5.0, "Test"); 
-    order.print_order();
-
-    //Exchange generates orders based on the passed in args
-
-    //Optional 
-
-    //Order book processes the generated args
-    
-    
-
+    //engine.stop();
 
     return 0;
 }
