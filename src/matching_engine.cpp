@@ -11,20 +11,27 @@ void MatchingEngine::stop(){
     if (thread_.joinable())
         thread_.join();
 }
-
-insert_book(){
-    if(){}
-    
-}
-
 bool insert_order(Order* o){
     if(o){
         return false;
     }
 
+    lookup_book(o.getSymbol());
 
     return true;
 }
+
+bool lookup_book(string symbol){
+    if(book_map.find(symbol) != book_map.end()){
+
+        return true;
+    }else{
+        create_new_book(symbol);
+        
+        return false;
+    }
+}
+
 
 void MatchingEngine::run(int opt) {
     while(true){

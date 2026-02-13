@@ -19,7 +19,25 @@ void Order::print_order(){
         cout<<"Quantity " << quantity_ <<"\n";
 }
 
+int Order::getId(){
+        return id_;
+}
 
+string Order::getSymbol(){
+        return symbol_;
+}
+
+bool Order::getSide(){
+        return side_;
+}
+
+double Order::getPrice(){
+        return price_;
+}
+
+double Order::getQuantity(){
+        return quantity_;
+}
 
 
 

@@ -15,10 +15,12 @@ public:
 
     void start();
     void stop();
-
+ 
 private:
     void run();
     void process(Order& o);
+    bool lookup_book(string symbol);
+    
 
     unordered_map<string, OrderBook*> book_map;
     OrderStream<Order>& stream_;

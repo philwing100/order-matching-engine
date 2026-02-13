@@ -28,6 +28,5 @@ struct OrderBook{
 
     void insert_order();
     void delete_order();
-    
 };
 

@@ -12,6 +12,11 @@ class Order{
     Order(int id, string symbol, bool side, double price, double quantity);
 
     void print_order();
+    string getSymbol();
+    double getPrice();
+    int getId();
+    bool getSide();
+    double getQuantity();
 
     private:
         int id_;
