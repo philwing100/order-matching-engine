@@ -7,6 +7,7 @@
 #include <atomic>
 #include <unordered_map>
 #include <string>
+#include <cstdint>
 #include "order_book.h"
 
 class MatchingEngine {
@@ -15,19 +16,24 @@ public:
 
     void start();
     void stop();
+    bool delete_order(const std::string& symbol, const int order_id);
+    uint64_t processed_count() const;
+    uint64_t match_count() const;
  
 private:
     void run();
     void process(Order& o);
-    bool lookup_book(string symbol);
+    OrderBook* lookup_book(const std::string& symbol);
+    bool create_new_book(const std::string& symbol);
+    bool insert_order(Order& o);
     
 
-    unordered_map<string, OrderBook*> book_map;
+    std::unordered_map<std::string, OrderBook> book_map;
     OrderStream<Order>& stream_;
     std::atomic<bool> running_;
+    std::atomic<uint64_t> processed_;
+    std::atomic<uint64_t> matched_;
     std::thread thread_;
-
-    
 };
 
 

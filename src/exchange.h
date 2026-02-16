@@ -17,6 +17,7 @@ class Exchange
 
     void start(int opt);
     void stop();
+    void wait();
     
     private:
         void run(int opt);

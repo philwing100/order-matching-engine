@@ -18,13 +18,13 @@ int main(int argc, char **argv) {
     OrderStream<Order> stream;
 
     Exchange exchange(stream, opts.num_orders, opts.symbols, opts.duration);
-    //MatchingEngine engine(stream);
+    MatchingEngine engine(stream);
 
-   // engine.start();
+    engine.start();
     exchange.start(2);
 
     exchange.stop();
-    //engine.stop();
+    engine.stop();
 
     return 0;
 }

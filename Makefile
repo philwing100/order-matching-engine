@@ -8,8 +8,8 @@ CXXFLAGS := -std=c++20 -Wall -Wextra -O2
 SRC_DIR := src
 BIN_DIR := bin
 
-# Filesgc
-SRC	:=	$(shell find . -name "*.cpp")
+# Files
+SRC	:=	$(shell find $(SRC_DIR) -name "*.cpp")
 TARGET := $(BIN_DIR)/app
 
 # Default target

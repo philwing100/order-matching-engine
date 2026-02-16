@@ -26,7 +26,15 @@ struct OrderBook{
     std::map<int, PriceLevel> bids;
     std::map<int, PriceLevel> asks;
 
-    void insert_order();
-    void delete_order();
+    bool insert_order(Order& o);
+    bool delete_order(const int order_id);
+
+    private:
+        void insert_price_level(const bool side, Order* order);
+        PriceLevel create_price_level(Order* order);
+        void insert_into_order_map(Order* order);
+        Order* get_from_order_map(const int order_id);
+        bool delete_from_order_map(const int order_id);
+        void remove_from_price_level(Order* order, const bool side);
 };
 

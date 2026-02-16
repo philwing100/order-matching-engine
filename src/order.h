@@ -10,6 +10,7 @@ class Order{
     public:
 
     Order(int id, string symbol, bool side, double price, double quantity);
+    Order();
 
     void print_order();
     string getSymbol();
