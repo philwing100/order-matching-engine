@@ -1,0 +1,221 @@
+%-------------------------
+% Resume in Latex
+% Author : Phillip Ring
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeCoursework}[1]{
+  \item\small{
+    \textbf{Relevant Coursework:} #1 \vspace{-2pt}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Phillip Ring} \\ \vspace{1pt}
+    \href{mailto:x@x.com}{\underline{phillip.roy.ring@gmail.com}} $|$ 
+    \href{https://linkedin.com/in/ring-phillip}{\underline{linkedin.com/in/ring-phillip}} $|$
+    \href{https://github.com/philwing100}{\underline{github.com/philwing100}} $|$ \small 512-765-3585
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Texas at Austin}{Aug. 2025 -- May 2027}
+      {Master of Science in Computer Science}{Austin, TX}
+    \resumeSubheading
+      {University of Texas at Tyler}{Sep. 2021 -- May 2025}
+      {Bachelor of Science in Computer Science}{Tyler, TX}
+    \resumeCoursework{Parallel Systems, Advanced Operating Systems, Computer Architecture, Unix Shell Programming, Deep Learning}
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+\resumeSubheading
+  {Software Engineer}{July 2025 -- Present}
+  {Heartland National TB Center - Full Time}{San Antonio, TX}
+  \resumeItemListStart
+  \resumeItem{Translated medical requirements from doctors and nurses into technical solutions.}
+    \resumeItem{Used C\#, JS and MSSQL to create medical consultation database receiving \textbf{1600} consultations per year.}
+    \resumeItem{Conducted meetings with IT Operations Manager and Director of IT Infrastructure to secure cloud infrastructure.}
+    \resumeItem{Built REST endpoints in C\# .NET to power data exports of consultation data as graphs and charts for staff.}
+  \resumeItemListEnd
+
+\resumeSubheading
+  {Software Engineer Intern}{Sep. 2024 -- Dec. 2024}
+  {zdSCADA - Part Time}{Tyler, TX}
+  \resumeItemListStart
+    \resumeItem{Built full stack services using C\# .NET, Vue.js, and MSSQL database to support industrial SCADA systems.}
+        \resumeItem{Saved \textbf{80} hours per year by automating the invoice generation pipeline for the accounting team.}
+    \resumeItem{Implemented a backend logging solution that exposed critical defects early, reducing production incidents.}
+    \resumeItem{Utilized Azure DevOps for branch management, tracking user stories, and streamlining pull request workflows.}
+  \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+    \resumeProjectHeading
+          {\textbf{GPU-Accelerated K-Means Optimization} $|$ \emph{C++, Cuda, Thrust}}{ Sep. 2025 -- Oct. 2025}
+          \resumeItemListStart
+           \resumeItem{Implemented three GPU-parallel K-Means variants using CUDA and Thrust.}
+            \resumeItem{Achieved \textbf{17×} faster iteration time than a sequential CPU baseline via kernel and memory optimizations.}
+            \resumeItem{Benchmarked scalability across dataset sizes, analyzing bandwidth limits and atomic contention.}
+          \resumeItemListEnd
+    \resumeProjectHeading
+          {\textbf{Parallel Prefix Scan and Barriers UTA Project} $|$ \emph{C++, Python}}{ Aug. 2025 -- Sep. 2025}
+          \resumeItemListStart
+            \resumeItem{Implemented a work efficient asynchronous prefix scan using POSIX threads.}
+            \resumeItem{Built a custom reentrant barrier using localsense spinlocks, achieving \textbf{223\%} speedup over pthread barriers.}
+            \resumeItem{Identified scalability bottlenecks at high thread counts and optimized workload distribution.}
+            \resumeItem{Wrote Python scripts for reproducible experiments and statistical analysis.}
+          \resumeItemListEnd
+        \resumeProjectHeading
+          {\textbf{Two Phase Commit} $|$ \emph{Rust}}{Sep. 2024 -- Dec. 2024}
+          \resumeItemListStart
+            \resumeItem{Built a distributed two-phase commit simulator in Rust with concurrent coordinator and participant nodes.}
+            \resumeItem{Simulated probabilistic failures using bidirectional channels and asynchronous messaging.}
+            \resumeItem{Improved coordinator throughput by replacing blocking waits with non-blocking polling on the critical path.}
+            \resumeItem{Used Rust ownership and concurrency guarantees to prevent deadlocks and unsafe shutdowns.}
+          \resumeItemListEnd
+          \resumeProjectHeading
+          {\textbf{Transformer-Based Autonomous Driving Planner} $|$ \emph{Pytorch}}{Fall 2025}
+          \resumeItemListStart
+        \resumeItem{Built an end-to-end autonomous driving planner in PyTorch to predict vehicle trajectories from sensor inputs.}
+        \resumeItem{Implemented and compared MLP, CNN, and Transformer-based planners with cross-attention over learned queries.}
+        \resumeItem{Designed a modular training pipeline with custom datasets, losses, metrics, and checkpointing.}
+        \resumeItem{Met strict trajectory error thresholds and validated closed-loop driving performance in SuperTuxKart simulation.}
+          \resumeItemListEnd
+          \resumeProjectHeading
+          {\textbf{High-Frequency Order Matching Engine} $|$ \emph{C++}}{2024}
+          \resumeItemListStart
+            \resumeItem{Built a concurrent order matching engine in C++ using a producer-consumer architecture with a simulated exchange thread generating randomized multi-symbol market orders.}
+            \resumeItem{Designed per-symbol order books with a sorted \texttt{std::map} for O(log N) price-level insertion and O(1) best bid/ask crossing, and an \texttt{unordered\_map} for O(1) order cancellation by ID.}
+            \resumeItem{Implemented a thread-safe order stream using mutex and condition variables, enabling lock-safe handoff between order generation and matching without busy-waiting.}
+            \resumeItem{Benchmarked throughput using \texttt{std::atomic} counters, achieving over \textbf{250k} orders per second while tracking match rate and RSS memory footprint.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: C/C++, Python, C\#, SQL (Postgres, mySQL, T-SQL), Js, BASH} \\
+     \textbf{Technologies}{: Pytorch, Matplotlib, Docker, .NET, Vue.js, Node.js, Playwright, WSL, Ubuntu} \\
+     \textbf{Developer Tools}{: Git, Github Actions, Linux, Generative AI, VS Code, Valgrind,  Agile Methodology} \\
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}
