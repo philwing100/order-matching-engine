@@ -1,47 +1,15 @@
 //Order.cpp
-#include "order.h" //"" Checks the local files
-#include <stdlib.h> // <> Checks the system include paths
-#include <string>
+#include "order.h"
 
-using namespace std;
-    
-//True bool is bid
-//False bool is ask
-Order::Order(int id, string symbol, bool side, double price, double quantity)
-        : id_(id), symbol_(symbol), side_(side), price_(price), quantity_(quantity){}
+// True  = bid
+// False = ask
+Order::Order(int id, int symbol_id, bool side, double price, double quantity)
+    : price_(price), quantity_(quantity), id_(id), symbol_id_(symbol_id), side_(side) {}
 
-Order::Order() {}
-
-
-
-void Order::print_order(){
-        cout<<"Order id " << id_ <<"\n";
-        cout<<"Symbol " << symbol_ <<"\n";
-        cout<<"Side " << side_ <<"\n";
-        cout<<"Price " << price_ <<"\n";
-        cout<<"Quantity " << quantity_ <<"\n";
+void Order::print_order() {
+    std::cout << "Order id "   << id_        << "\n";
+    std::cout << "Symbol id "  << symbol_id_ << "\n";
+    std::cout << "Side "       << side_      << "\n";
+    std::cout << "Price "      << price_     << "\n";
+    std::cout << "Quantity "   << quantity_  << "\n";
 }
-
-int Order::getId(){
-        return id_;
-}
-
-string Order::getSymbol(){
-        return symbol_;
-}
-
-bool Order::getSide(){
-        return side_;
-}
-
-double Order::getPrice(){
-        return price_;
-}
-
-double Order::getQuantity(){
-        return quantity_;
-}
-
-
-
-

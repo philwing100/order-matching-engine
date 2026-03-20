@@ -1,5 +1,8 @@
-.idea
-./idea
-/idea
-.build
-./build
+# IDE
+.idea/
+
+# CMake build output
+build/
+
+# Compiled binaries
+bin/app

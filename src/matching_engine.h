@@ -1,39 +1,45 @@
 //matching_engine.h
-// matching_engine.h
 #pragma once
-#include "order_stream.h"
-#include "order.h"
-#include <thread>
+
 #include <atomic>
-#include <unordered_map>
-#include <string>
 #include <cstdint>
+#include <memory>
+#include <thread>
+#include <vector>
+
+#include "order.h"
 #include "order_book.h"
+#include "order_stream.h"
 
 class MatchingEngine {
 public:
-    MatchingEngine(OrderStream<Order>& stream);
+    explicit MatchingEngine(OrderStream<Order>& stream);
 
     void start();
     void stop();
-    bool delete_order(const std::string& symbol, const int order_id);
+    bool delete_order(int symbol_id, int order_id);
+
     uint64_t processed_count() const;
-    uint64_t match_count() const;
- 
+    uint64_t match_count()     const;
+
 private:
     void run();
-    void process(Order& o);
-    OrderBook* lookup_book(const std::string& symbol);
-    bool create_new_book(const std::string& symbol);
-    bool insert_order(Order& o);
-    
 
-    std::unordered_map<std::string, OrderBook> book_map;
+    OrderBook* lookup_book(int symbol_id);
+    OrderBook* create_new_book(int symbol_id);
+    bool       insert_order(Order& o);
+
+    // Vector indexed by symbol_id — O(1) lookup (bounds check + array index,
+    // no hash), grows on demand so there is no fixed symbol-count limit.
+    std::vector<std::unique_ptr<OrderBook>> books_;
+
     OrderStream<Order>& stream_;
-    std::atomic<bool> running_;
-    std::atomic<uint64_t> processed_;
-    std::atomic<uint64_t> matched_;
+    std::atomic<bool>   running_;
+
+    // Plain integers: only written by the engine thread, only read after
+    // thread_.join() in stop(), so atomic RMW is unnecessary.
+    uint64_t processed_{0};
+    uint64_t matched_{0};
+
     std::thread thread_;
 };
-
-
